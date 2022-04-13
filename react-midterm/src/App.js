@@ -14,6 +14,17 @@ class App extends Component {
   state = {
     user: null
   }
+  
+  constructor(props) {
+    super(props);
+
+    this.update = (data) => {
+      this.setState({
+        user: data
+      })
+    };
+
+  } 
 
   
   async componentDidMount() {
@@ -30,10 +41,12 @@ class App extends Component {
    return (
       <div  className="App">
         <Content/>
-        <Search />
-        <Context.Provider value={this.state.user} >
+        
+        <Context.Provider value={[this.state.user, this.update]} >
+          <Search />
           <ComponentC />
         </Context.Provider>
+
       </div>
     )
   }

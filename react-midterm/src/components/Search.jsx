@@ -1,19 +1,21 @@
 import React from 'react';
-//import {Context} from '../context/userContext';
+import {Context} from '../context/userContext';
+import wheaterData from '../libraries/data.js';
 
 const Search = () => {
 
     const [value, setValue] = React.useState('some initial value');
 
+    // use context
+    const [data, setData] = React.useContext(Context);
 
-    function handleUpdateWeather(e) {
+
+    async function handleUpdateWeather(e) {
         e.preventDefault();
-        console.log('The link was clicked.');
-        // `state` is an object containing all your context variables.
-       // console.log(context) // { foo: "bar", baz: "qux" }
+        console.log('The link was clicked.', value);
 
-        // `update` is a function that lets you update the variables; for instance:
-        //setContext({ foo: "garply" })
+       const wheater =  await wheaterData();
+       setData(wheater)
       }
 
     return (

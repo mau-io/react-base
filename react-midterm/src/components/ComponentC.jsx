@@ -32,7 +32,10 @@ export default class ComponentC extends Component {
     return (
       <Context.Consumer>
         {
-         (data) =>  data ? view(data) : 'Loading...'
+         ([data]) => {
+            console.log(data)
+            return data?.main ? view(data) : 'Loading...'
+         } 
         }
       </Context.Consumer>
     )
