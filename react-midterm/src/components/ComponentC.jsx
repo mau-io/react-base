@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Context} from '../context/userContext'
+import {Context} from '../context/dataContext'
 
 const view = (data) => (
   <div class="row mb-2">
