@@ -50,7 +50,7 @@ async function fakefetchJSON(city = 'Vancouver') {
   } : {"cod":"404","message":"city not found"} 
 }
 
-const getData = fakefetchJSON;
+const getData = fetchJSON;
 
 export default getData;
 
